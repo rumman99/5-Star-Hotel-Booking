@@ -1,0 +1,28 @@
+.header{
+    border: 4px solid black;
+    background-size: cover;
+    background-position-y: 59%;
+}
+.header .logo{
+    height: 50px;
+}
+.title-container{
+    color: rgb(241 130 35 / 70%);
+    text-align: center;
+    font-size: 2em;
+}
+.nav{
+    margin-left: 200px;
+}
+.nav li{
+    display: inline;
+    margin-left: 50px;
+    
+  }
+  
+  .nav a{
+    text-decoration: none;
+    color: rgb(0 255 55 / 88%);
+    font-weight: bold;
+    font-size: 18px;
+  }
