@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Book from './components/Book/Book';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import BookingList from './components/BookingList/BookingList';
 
 export const userContext= createContext();
 
@@ -30,6 +31,9 @@ const [userInfo, setUserInfo]= useState({});
             <PrivateRoute path="/book/:bedType"><Book/></PrivateRoute>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/bookingList">
+              <BookingList></BookingList>
             </Route>
           </Switch>
       </Router>

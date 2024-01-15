@@ -5,6 +5,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { userContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
+
 const app = initializeApp(firebaseConfig);
 const Login = () => {
     const [userInfo, setUserInfo]= useContext(userContext);
@@ -27,7 +28,8 @@ const Login = () => {
         const userNameEmail= {name:displayName, email};
         setLogInUser(result.user);
         setUserInfo(userNameEmail);
-        console.log(result.user);
+        storeAuthToken()
+
         history.replace(from);
 
         }).catch((error) => {
@@ -37,8 +39,19 @@ const Login = () => {
         });
         }
 
+    const storeAuthToken=()=>{
+        getAuth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+            // Send token to your backend via HTTPS
+            // ...
+            // console.log(idToken);
+            sessionStorage.setItem('token', idToken)
+          }).catch(function(error) {
+            // Handle error
+          });
+    }
+
     return (
-        <div>
+        <div style={{textAlign:'center'}}>
             <h1>This is Login</h1>
             <input onClick={handleGoogleAuth} type="button" value='Login' />
             {logInUser.email && <h1>Welcome {logInUser.displayName} in Our Hotel</h1>}

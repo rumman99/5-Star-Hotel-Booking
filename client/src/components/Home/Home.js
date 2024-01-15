@@ -2,7 +2,7 @@ import React from 'react';
 import Room from '../Room/Room';
 import family from '../../images/Family.png'
 import double from '../../images/Double.png'
-import single from '../../images/single.png'
+import single from '../../images/Single.png'
 
 const Home = () => {
     const style = {
