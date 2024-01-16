@@ -63,13 +63,21 @@ async function run() {
              // Check if the emails match
             if(serverSideEmail === clientSideEmail){
               databaseCollection.find({email:req.query.email}).toArray()
-              .then(data => res.send(data))
+              .then(data => res.status(200).send(data))
             }
-            // ...
+            else{
+              res.status(401).send('Unauthorized Request');
+
+            }
           })
           .catch((error) => {
             // Handle error
+            res.status(401).send('Unauthorized Request');
+            console.log(error);
           });
+      }
+      else{
+        res.status(401).send('Unauthorized Request');
       }
     })
 
