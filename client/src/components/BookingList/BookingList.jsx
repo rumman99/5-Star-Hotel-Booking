@@ -8,7 +8,7 @@ const BookingList = () => {
 /// Get Method to View Booking List from DB/////
     useEffect(()=>{
         const bookingListUi= async ()=>{
-            const fetching= await fetch('http://localhost:3333/bookingList?email='+userInfo.email, 
+            const fetching= await fetch('https://five-star-hotel.onrender.com/bookingList?email='+userInfo.email, 
             {
                 method:'GET',
                 headers: {'Content-Type': 'application/json', authorization: `Bearer ${sessionStorage.getItem('token')}`}

@@ -29,7 +29,7 @@ const Book = () => {
         const bookInfo= {user: userInfo.name, email: userInfo.email, checkInDate: selectedDate.checkInDate, checkOutDate: selectedDate.checkOutDate, category: bedType};
 
         const fetching= async ()=>{
-            const res= await fetch('http://localhost:3333/booking',{
+            const res= await fetch('https://five-star-hotel.onrender.com/booking',{
                 method: 'POST',
                 body: JSON.stringify(bookInfo),
                 headers: {'Content-Type': 'application/json'}
