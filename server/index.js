@@ -14,8 +14,15 @@ admin.initializeApp({
 });
 
 const app= express();
-app.use(cors());
+app.use(cors(
+	    {
+		origin: ["https://am-mart.vercel.app"],
+		method: ["POST", "GET"],
+		credentials: true
+	    }
+));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB Database Connection ////////////////////////////////////////////////////////////////////////////////////////////////////
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster-rumman0.pqu8dwy.mongodb.net/?retryWrites=true&w=majority`;
@@ -89,4 +96,4 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.listen(port, console.log("Listening to PORT: 3333"));
+app.listen(process.env.PORT || port, console.log("Listening to PORT: 3333"));
